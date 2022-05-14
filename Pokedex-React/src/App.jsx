@@ -1,26 +1,32 @@
 import './App.css'
-import './components/SearchBox/SearchBox'
 import SearchBox from './components/SearchBox/SearchBox'
+import { useState, useEffect } from 'react'
 
 function App() {
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((response) => response.json())
-      .then((users) => {
-        const customUser = {
-          id: 90,
-          name: "Jhon Doe",
-          email: "jhondoe@mail.com",
-        };
 
-        setUsers([...users, customUser]);
-        console.log(users);
-      });
+  const [pokemons, setPokemons] = useState([])
+
+  useEffect(() => {
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0")
+      .then((response) => response.json())
+      .then((data) => { 
+        setPokemons([...pokemons,data.results]);
+      })
   }, []);
+
+  const showAllPokemons = () => {
+    console.log(pokemons)
+  }
+  
+  const pokemonToSearch = (event) => {
+    const pokemon = event.target.value;
+    console.log(pokemon);
+    
+  };
   
   return (
     <div className="App">
-      <SearchBox/>
+      <SearchBox onSearch={showAllPokemons}/>
     </div>
   )
 }

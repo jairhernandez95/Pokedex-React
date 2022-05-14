@@ -1,13 +1,10 @@
 import React from 'react'
 
-const SearchBox = () => {
-  const onSubmit = (event) => {
-    event.preventDefault();
-    console.log(event.target.value)
-  }
+const SearchBox = ({onSearch}) => {
+
   return (
-    <form onSubmit={onSubmit}>
-      <input type="text" placeholder='Pokemon' onChange={(event) => (event.target.value)}/>
+    <form>
+      <input type="text" placeholder='Pokemon' onChange={onSearch}/>
     </form>
   )
 }
