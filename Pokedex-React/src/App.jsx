@@ -1,5 +1,6 @@
 import './App.css'
 import SearchBox from './components/SearchBox/SearchBox'
+import Card from './components/Card/Card'
 import { useState, useEffect } from 'react'
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <SearchBox onSearch={showAllPokemons}/>
+      {() => {pokemons.map()}}
     </div>
   )
 }
