@@ -1,9 +1,12 @@
 import React from 'react'
 
-const Card = ( {array} ) => {
+const Card = ( {element} ) => {
   return (
     <div>
-      <h1>Card</h1>
+      {/* <a href={element.url}><p>{element.name}</p></a> */}
+      <p>Tarea número: {element.numero}</p>
+      <p>{element.fecha}</p>
+      <p>Id: {element.id}</p>
     </div>
   )
 }
