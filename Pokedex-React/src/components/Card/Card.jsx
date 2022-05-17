@@ -1,12 +1,13 @@
 import React from 'react'
+import '../Card/Card.style.css'
 
-const Card = ( {element} ) => {
+const Card = ({pkmn}) => {
+  console.log("DESDE CARD")
+  console.log(pkmn)
+  
   return (
     <div>
-      {/* <a href={element.url}><p>{element.name}</p></a> */}
-      <p>Tarea número: {element.numero}</p>
-      <p>{element.fecha}</p>
-      <p>Id: {element.id}</p>
+      <p>{pkmn.name}</p>
     </div>
   )
 }
