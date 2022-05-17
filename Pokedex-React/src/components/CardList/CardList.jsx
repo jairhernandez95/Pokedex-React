@@ -4,21 +4,20 @@ import Card from '../Card/Card'
 const CardList = ({pokemons})=> {
 
   return (
-    <div>
+    <div className="Card-List">
       {
-        pokemons.map((pokemon) => 
+        pokemons.map((pokemon, index) => 
           {
-            console.log(pokemon);
-            pokemon.map((pkmn, idx) => 
-            {
-              // console.log(pkmn);
-              return <Card key={idx} pkmn={pkmn}/>
-            })
-          
-        })
+            return(
+               <Card key={index} pkmn={pokemon} />
+            )
+          }
+        )
       }          
     </div>
   )
 }
 
 export default CardList
+
+// 

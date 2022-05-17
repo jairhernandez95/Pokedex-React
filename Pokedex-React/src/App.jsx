@@ -6,38 +6,19 @@ import { useState, useEffect } from 'react'
 
 function App() {
 
-  const [pokemons, setPokemons] = useState([
-    // {
-    //   id: 1,
-    //   numero: 1,
-    //   fecha: '02 de Febrero de 2022',
-    //   terminado: true,
-    // },
-    // {
-    //   id: 2,
-    //   numero: 2,
-    //   fecha: '10 de Febrero de 2022',
-    //   terminado: false,
-    // },
-    // {
-    //   id: 3,
-    //   numero: 3,
-    //   fecha: '11 de Febrero de 2022',
-    //   terminado: false,
-    // }
-  ])
+  const [pokemons, setPokemons] = useState([])
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=20?offset=20")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=1200")
       .then((response) => response.json())
       .then((data) => { 
-        setPokemons([data.results]);
+        setPokemons(data.results);
       })
   }, []);
 
-  const showAllPokemons = () => {
-    console.log("hello")
-  }
+  // const showAllPokemons = () => {
+    
+  // }
   
   const pokemonToSearch = (event) => {
     const pokemon = event.target.value.toLowerCase();
@@ -47,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <SearchBox onSearch={pokemonToSearch}/>
-      {pokemons.length > 0 ? <CardList pokemons={pokemons}/>:"No hay data por mostrar"}
+      {pokemons.length > 0 ? <CardList pokemons={pokemons} className={'Card-List'}/>:"No hay data por mostrar"}
     </div>
   )
 }
