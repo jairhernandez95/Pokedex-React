@@ -25,6 +25,7 @@ function Card ({pkmn}) {
         {pokemon && <p>No. {pokemon.order}</p>}
         {pokemon && <img src={pokemon.sprites.front_default} alt="" />}
         <h1>{pkmn.name}</h1>
+        <p>Type: {pokemon.types[0].type.name}</p>
       </div>}
     </div>
   )

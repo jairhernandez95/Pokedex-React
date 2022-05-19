@@ -1,7 +1,6 @@
 .App {
   text-align: center;
   color: white;
-  background-color: tomato;
 }
 
 .Card-List
@@ -23,5 +22,5 @@
 
 img
 {
-  width: 250px;
+  width: 350px;
 }
