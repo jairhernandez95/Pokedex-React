@@ -8,21 +8,19 @@ function Card ({pkmn}) {
 
   const [pokemon, setPokemon] = useState([]);
 
-  async function getData ()
-  {
-    useEffect(() => {
-      fetch(link)
-        .then((response) => response.json())
-        .then((data) => {
-          setPokemon(data)
-        })
-    },[])
-  }
+  useEffect(() => {
+    fetch(link)
+      .then((response) => response.json())
+      .then((data) => {
+        setPokemon(data)
+      })
+  },[])
 
   return (
     <div className='Card'>
-      {/* <img src={pokemon.sprites.front_default} alt="" /> */}
+      <img src={pokemon.sprites.front_default} alt="" />
       <h1>{pkmn.name}</h1>
+      <p>{pkmn.url}</p>
       {/* <h3>No. {pokemon.id}</h3>
       <h5>Type: {typePokemon}</h5> */}
       {/* <div>
