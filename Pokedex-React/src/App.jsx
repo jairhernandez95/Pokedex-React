@@ -7,22 +7,28 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [pokemons, setPokemons] = useState([])
+  const [allPokemons, setAllPokemons] = useState([])
 
   useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon?limit=5")
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=150")
       .then((response) => response.json())
       .then((data) => { 
         setPokemons(data.results);
+        setAllPokemons(data.results);
       })
   }, []);
-
-  // const showAllPokemons = () => {
-    
-  // }
   
   const pokemonToSearch = (event) => {
     const pokemon = event.target.value.toLowerCase();
-    console.log(pokemon)
+    if(pokemon === "")
+    {
+      setPokemons(allPokemons)
+    }
+    else
+    {
+      let helperArray = pokemons.filter((element)=>element.name.includes(pokemon))
+      setPokemons(helperArray)
+    }
   };
 
   return (

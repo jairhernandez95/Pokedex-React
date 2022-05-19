@@ -6,10 +6,10 @@ const CardList = ({pokemons})=> {
   return (
     <div className="Card-List">
       {
-        pokemons.map((pokemon, index) => 
+        pokemons.map((pokemon) => 
           {
             return(
-               <Card key={index} pkmn={pokemon} />
+               <Card key={pokemon.url} pkmn={pokemon} />
             )
           }
         )
